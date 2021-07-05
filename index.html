@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+<link rel="stylesheet" href="dimage.css">
+
+<head>
+    <meta charset="utf-8">
+    <title>泰科美景相册</title>
+    <style type="text/css">
+        .a1 {
+            bottom: 150px;
+        }
+
+        .a2 {
+            bottom: 70px;
+        }
+
+        .a1,
+        .a2 {
+            position: absolute;
+            padding: 2px;
+            right: 30px;
+            font-size: 14px;
+        }
+
+        .a1 a,
+        .a2 a {
+            color: #fff;
+            text-decoration: none;
+
+        }
+    </style>
+</head>
+
+<body id="body">
+    <div class="t border-image-clip-path" id="t">
+        <p>温馨提醒：</p>
+        <p>1.为了你的体验效果更佳，建议用电脑浏览</p>
+        <p>2.因学长没钱买服务器，网页加载较慢，会有卡顿，属于正常现象</p>
+        <p>3.滑动右侧小图片点击放大图片在左侧显示</p>
+        <p>4.办校园卡可以找我和我的组员，学长学姐们在为服务器奋斗，以便</p>
+        <p>&nbsp;&nbsp;&nbsp;给学弟学妹们提供更好的体验</p>
+        <p>5.如在使用过程中遇到问题请联系我(QQ:1578625920)</p>
+        <img src="wx.png" alt="vx" id="im">
+        <input type="button" value="收到" id="inpu">
+    </div>
+    <div class="a1 xc"><a href="">食堂特色</a></div>
+    <div class="a2 xc"><a href="">宿舍风采</a></div>
+    <div class="w xc">
+        <div class="tit">
+            泰科美景
+        </div>
+        <div class="main w conic">
+
+            <div class="pic w ">
+                <div class="zd">
+                    <ul id="u1">
+                        <li><img src="1 (1).jpg" id="a1"></li>
+                    </ul>
+                </div>
+                <div class="yx">
+                    <ul id="u2">
+
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <script>
+        function my(id) {
+            return document.getElementById(id);
+        }
+
+        my("im").onclick = function () {
+            my("im").style.bottom = "0";
+            my("im").style.right = "0";
+        }
+        // 鼠标进出
+        my("im").onmouseover = function () {
+            my("im").style.bottom = "0";
+            my("im").style.right = "0";
+        };
+        my("im").onmouseout = function () {
+            my("im").style.bottom = "-30px";
+            my("im").style.right = "-30px";
+        };
+
+        my("inpu").onclick = function () {
+            my("t").style.display = "none";
+        }
+
+
+
+        for (var i = 1; i < 98; i++) {
+            (function (i) {
+                var ulobj = document.getElementById("u2");
+                var li = document.createElement("li");
+                var img = document.createElement("img");
+                c = "1 (" + i + ").jpg";
+                // console.log(c);
+                img.setAttribute("src", c);
+                ulobj.appendChild(li);
+                li.appendChild(img);
+            })(i);
+        }
+
+        // 这样做是错的
+        // for (var i = 0; i < my("u2").children.length; i++) {
+        //     my("u2").children[i].onclick = function () {
+        //         my("a1").src = i + 1 + ".jpg";
+        //     }
+        // }
+
+        for (var i = 0; i < 98; i++) {
+            (function (i) {
+                var s = my("u2").children[i];
+                my("u2").children[i].onclick = function () {
+                    // console.log(i);
+                    // var conut = 1;
+                    my("a1").src = '1 (' + (i + 1) + ').jpg';
+
+                }
+            })(i);
+        }
+
+
+    </script>
+</body>
+
+</html>
